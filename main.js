@@ -2,6 +2,8 @@ const fs = require('fs');
 const _ = require('underscore');
 const BankingController = require('./controller/bankingController')
 
+console.log(require)
+
 if (require.main === module) {
     let filename = process.argv[2];
     let inputData = fs.readFileSync(filename);

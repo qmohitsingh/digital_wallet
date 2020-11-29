@@ -9,10 +9,6 @@ Accounts.prototype.getAccountInfo = function () {
     return this.accountInfo;
 }
 
-Accounts.prototype.setAccountInfoByName = function (accountHolderName, user) {
-    return this.accountInfo[accountHolderName] = user;
-}
-
 Accounts.prototype.setAccountInfo = function (accountInfo) {
     return this.accountInfo= accountInfo;
 }
@@ -39,7 +35,6 @@ Accounts.prototype.TransferMoney = function (accountHolderName1, accountHolderNa
 
         return this.creditBalance(accountHolderName1, accountHolderName2, amount);
     } catch (error) {
-        //console.log("error: ", error)
         return {statusCode: 400, message: error.toString()};
     }
 }

@@ -15,14 +15,9 @@ OfferService.prototype.Offer2 = function() {
             accountInfoArray.push(accountInfo[user]);
         })
 
-        let sortedAccountData = _.sortBy(accountInfoArray, function (user) {
-            console.log([-user.transactions.length, user.balance, user.creationTime])
-            return [-user.transactions.length, user.balance, user.creationTime]
-        });
+        let sortedAccountData = accountInfo;
 
         sortedAccountData.sort((user1, user2) => {
-            console.log(user1, user2)
-
             if (user1.transactions.length === user2.transactions.length) {
                 if (user1.balance === user2.balance) {
                     return user1.creationTime.getTime()  < user2.creationTime.getTime()  ? 1 : -1;

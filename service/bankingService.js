@@ -12,7 +12,9 @@ BankingService.prototype.CreateWallet = function (accountHolderName, balance) {
 
 BankingService.prototype.TransferMoney = function (accountHolderName1, accountHolderName2, amount) {
     let result = Accounts.TransferMoney(accountHolderName1, accountHolderName2, amount);
-    console.log("TransferMoney: ", result)
+
+    if (result.statusCode !== 200)
+        return result;
     //check for offer1 after transfer of money is complete
     return OfferService.checkOffer('offer1', accountHolderName1, accountHolderName2);
 }
